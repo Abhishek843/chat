@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@aws-sdk/client-rds-data": "^3.441.0",
     "aws-sdk": "^2.1353.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
@@ -19,9 +20,9 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^9.0.0",
-    "mysql2": "^3.2.0",
+    "mysql2": "^3.6.2",
     "node-cron": "^3.0.2",
-    "sequelize": "^6.30.0"
+    "sequelize": "^6.33.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
