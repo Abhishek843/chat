@@ -589,7 +589,7 @@ function convertToTime(dateTime, mode='HHMMSS'){
 }
 
 function logout(){
-    if(confirm('Are you sure you want to logout ?')){
+    if(confirm('Are you sure you want to logout?')){
         localStorage.clear();
         window.location.href = '/';
     }
