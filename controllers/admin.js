@@ -60,7 +60,7 @@ exports.postPromoteGroupMemberToAdmin = async (req, res) => {
         }
 
         if(user.email === memberEmail){
-            res.status(400).json({ msg: 'You cannot remove yourself from group. Please use leave group feature' });
+            res.status(400).json({ msg: 'You cannot remove yourself from group. Please use leave group feature.' });
             return;
         }
         
