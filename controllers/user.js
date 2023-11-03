@@ -18,7 +18,7 @@ exports.getUserGroups = async (req, res) => {
         res.status(200).json(groups); 
     }catch(err){
         console.log('GET USER GROUPS ERROR');
-        res.status(500).json({ error: err, msg: 'Could not fetch current user groups' });
+        res.status(500).json({ error: err, msg: 'Could not fetch current user groups.' });
     }
 }
 

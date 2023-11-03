@@ -10,7 +10,7 @@ exports.deleteGroupMember = async (req, res) => {
         const user = req.user;
 
         if(user.email === memberEmail){
-            res.status(400).json({ msg: 'You cannot remove yourself from group. Please use leave group feature' });
+            res.status(400).json({ msg: 'You cannot remove yourself from group. Please use leave group feature.' });
             return;
         }
         

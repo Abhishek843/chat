@@ -28,7 +28,7 @@ exports.postSignup = async (req, res) => {
         return;
     }
     if(phoneNumber.length != 10){
-        res.status(400).json({ msg: 'Invalid Phone Number' });
+        res.status(400).json({ msg: 'Invalid Phone Number.' });
         return;
     }
 

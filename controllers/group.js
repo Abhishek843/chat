@@ -30,7 +30,7 @@ exports.getGroupChats = async (req, res) => {
         res.status(200).json(groupChats);
     }catch(err){
         console.log('GET GROUP CHATS ERROR');
-        res.status(500).json({ error: err, msg: 'Could not fetch group chats' });
+        res.status(500).json({ error: err, msg: 'Could not fetch group chats.' });
     }
 }
 

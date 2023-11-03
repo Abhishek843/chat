@@ -11,7 +11,7 @@ exports.postGenerateRequest = async (req, res) => {
         const receiverEmail = req.body.email;
 
         if(!receiverEmail){
-            res.status(400).json({ msg: 'Receiver email required to send request' });
+            res.status(400).json({ msg: 'Receiver email required to send request.' });
             return;
         }
 
