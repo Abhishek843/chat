@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const cron = require('node-cron');
 
-//util
+//
 const sequelize = require('./util/database');
 const scheduler =require('./util/scheduler');
 //models

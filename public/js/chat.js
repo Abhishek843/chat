@@ -267,12 +267,49 @@ function leaveGroup(){
 }
 
 //chats
-function addChatInDOM(chat){
+// function addChatInDOM(chat){
+//     const message = chat.message;
+//     const dateTime = chat.createdAt;
+//     const username = chat.user.username;
+
+//     const fileURL = isValidURL(message) ? message : null; // check if message is a URL or not
+
+//     const div = document.createElement('div');
+//     const div2 = document.createElement('div');
+
+//     const sub = document.createElement('sub');
+//     sub.innerText = convertToTime(dateTime, 'HHMM');
+//     sub.className = 'ms-1';
+
+//     if(USERNAME === username){
+//         if(fileURL){
+//             div2.innerHTML = `<img src="${fileURL}" alt="image" width="150" height="125" class="rounded">`;
+//         }else{
+//             div2.innerText = `${message}`;
+//         }
+//         div.className = 'd-flex flex-row-reverse my-1';
+//         div2.className = 'rounded bg-success text-light px-2 py-1';
+//     }else{
+//         if(fileURL){
+//             div2.innerHTML = `<p>${username}:</p>
+//             <img src="${fileURL}" alt="image" width="150" height="125" class="rounded">`;
+//         }else{
+//             div2.innerText = `${username}: ${message}`
+//         }
+//         div.className = 'd-flex flex-row my-1';
+//         div2.className = 'rounded bg-secondary text-light px-2 py-1';
+//     }
+
+//     div2.appendChild(sub);
+//     div.appendChild(div2);
+//     chatList.appendChild(div);
+// }
+function addChatInDOM(chat) {
     const message = chat.message;
     const dateTime = chat.createdAt;
-    const username = chat.user.username;
+    const username = chat.user.username; // Access the username property
 
-    const fileURL = isValidURL(message) ? message : null; // check if message is a URL or not
+    const fileURL = isValidURL(message) ? message : null; // Check if message is a URL or not
 
     const div = document.createElement('div');
     const div2 = document.createElement('div');
@@ -281,20 +318,20 @@ function addChatInDOM(chat){
     sub.innerText = convertToTime(dateTime, 'HHMM');
     sub.className = 'ms-1';
 
-    if(USERNAME === username){
-        if(fileURL){
+    if (USERNAME === username) {
+        if (fileURL) {
             div2.innerHTML = `<img src="${fileURL}" alt="image" width="150" height="125" class="rounded">`;
-        }else{
-            div2.innerText = `${message}`;
+        } else {
+            div2.innerText = `${username}: ${message}`; // Display username along with the message
         }
         div.className = 'd-flex flex-row-reverse my-1';
         div2.className = 'rounded bg-success text-light px-2 py-1';
-    }else{
-        if(fileURL){
+    } else {
+        if (fileURL) {
             div2.innerHTML = `<p>${username}:</p>
             <img src="${fileURL}" alt="image" width="150" height="125" class="rounded">`;
-        }else{
-            div2.innerText = `${username}: ${message}`
+        } else {
+            div2.innerText = `${username}: ${message}`; // Display username along with the message
         }
         div.className = 'd-flex flex-row my-1';
         div2.className = 'rounded bg-secondary text-light px-2 py-1';
