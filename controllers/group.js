@@ -8,36 +8,11 @@ const Chat = require('../models/chat');
 const Admin = require('../models/admin');
 const S3Services = require('../services/AwsS3');
 
-// exports.getGroupChats = async (req, res) => {
-//     try{
-//         const lastmessageid = req.query.lastmsgid;
-//         const groupId = req.group.id;
-        
-//         const groupChats = await Chat.findAll({
-//             where: {
-//                 [Op.and]: [
-//                     { id: { [Op.gt]: lastmessageid } }, // id > lastmessageid
-//                     { groupId: groupId }
-//                 ]
-//             },
-//             attributes: ['id', 'message', 'createdAt'],
-//             include: [{
-//                 model: User,
-//                 attributes: ['username']
-//             }]
-//         });
-
-//         res.status(200).json(groupChats);
-//     }catch(err){
-//         console.log('GET GROUP CHATS ERROR');
-//         res.status(500).json({ error: err, msg: 'Could not fetch group chats.' });
-//     }
-// }
 exports.getGroupChats = async (req, res) => {
-    try {
+    try{
         const lastmessageid = req.query.lastmsgid;
         const groupId = req.group.id;
-
+        
         const groupChats = await Chat.findAll({
             where: {
                 [Op.and]: [
@@ -52,19 +27,44 @@ exports.getGroupChats = async (req, res) => {
             }]
         });
 
-        // Modify the response structure to include username with the chat message
-        const formattedChats = groupChats.map(chat => ({
-            id: chat.id,
-            message: `${chat.User.username}: ${chat.message}`,
-            createdAt: chat.createdAt
-        }));
-
-        res.status(200).json(formattedChats);
-    } catch (err) {
+        res.status(200).json(groupChats);
+    }catch(err){
         console.log('GET GROUP CHATS ERROR');
         res.status(500).json({ error: err, msg: 'Could not fetch group chats.' });
     }
 }
+// exports.getGroupChats = async (req, res) => {
+//     try {
+//         const lastmessageid = req.query.lastmsgid;
+//         const groupId = req.group.id;
+
+//         const groupChats = await Chat.findAll({
+//             where: {
+//                 [Op.and]: [
+//                     { id: { [Op.gt]: lastmessageid } }, // id > lastmessageid
+//                     { groupId: groupId }
+//                 ]
+//             },
+//             attributes: ['id', 'message', 'createdAt'],
+//             include: [{
+//                 model: User,
+//                 attributes: ['username']
+//             }]
+//         });
+
+//         // Modify the response structure to include username with the chat message
+//         const formattedChats = groupChats.map(chat => ({
+//             id: chat.id,
+//             message: `${chat.User.username}: ${chat.message}`,
+//             createdAt: chat.createdAt
+//         }));
+
+//         res.status(200).json(formattedChats);
+//     } catch (err) {
+//         console.log('GET GROUP CHATS ERROR');
+//         res.status(500).json({ error: err, msg: 'Could not fetch group chats.' });
+//     }
+// }
 
 exports.postaddChat = async (req, res) => {
     try{
